@@ -9,9 +9,8 @@ from langchain.chains import LLMChain
 
 load_dotenv()
 
-
-def generate_petNames(petType, petColor, user_api_key):
-    llm = OpenAI(temperature= 0.7, api_key=user_api_key)
+def generate_petNames(petType, petColor):
+    llm = OpenAI(temperature= 0.7)
 
     prompt_temp_name = PromptTemplate(
         input_variables= ["petType", 'petColor'],
@@ -20,7 +19,7 @@ def generate_petNames(petType, petColor, user_api_key):
     
     chain = LLMChain(llm= llm, prompt=prompt_temp_name, verbose=True, output_key='pet_name')
     response = chain.invoke({'petType': petType, 'petColor': petColor})
-    return response['pet_name']
+    return response
 
 def langchain_agent():
     llm = OpenAI(temperature= 0.7)
