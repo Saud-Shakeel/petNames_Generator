@@ -1,4 +1,4 @@
-This is a Langchain based project which asks the following from the users:
+This is a `LangChain` based project which asks the following from the users:
 
 -- To slect the pet type out of the mentioned pets
 -- enter the color of the pet
